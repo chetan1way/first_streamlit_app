@@ -1,4 +1,5 @@
 import streamlit
+import requests
 
 streamlit.title('My Parents New Healthy Diner')
 
@@ -26,3 +27,7 @@ if fruits_to_show.empty:
   streamlit.dataframe(my_fruit_list)
 else:
   streamlit.dataframe(fruits_to_show)
+
+
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+streamlit.text(fruityvice_response)
