@@ -1,5 +1,6 @@
 import streamlit
 import requests
+import pandas
 
 streamlit.title('My Parents New Healthy Diner')
 
@@ -11,7 +12,7 @@ streamlit.text('🥑🍞 Avocado Toast')
 
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
-import pandas
+
 
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 
@@ -31,4 +32,9 @@ else:
 streamlit.header("Fruityvice Fruit Advice!")
 
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-streamlit.text(fruityvice_response.json())
+
+# Reading API json response into dataframe
+fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+# display dataframe on UI
+streamlit.dataframe(fruityvice_normalized)
+
