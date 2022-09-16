@@ -1,0 +1,2 @@
+# Library required for app
+snowflake-connector-python
