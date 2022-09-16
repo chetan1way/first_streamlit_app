@@ -53,7 +53,7 @@ except URLError as e:
   streamlit.error()
 
 # Stopping execution from here
-streamlit.stop()
+#streamlit.stop()
 
 ## Snowflake Connection and usage starts from here
 streamlit.header("The Fruit Load Contains:")
@@ -76,4 +76,4 @@ streamlit.write('Thanks for adding ', add_my_fruit)
 
 
 ## inserting data into snowflake
-my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+#my_cur.execute("insert into fruit_load_list values ('from streamlit')")
